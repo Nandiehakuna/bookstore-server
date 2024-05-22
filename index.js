@@ -7,9 +7,14 @@ const route =require('./routes/bookRoutes');
 
 const app = express();
 
+const corsOptions = {
+    origin: 'https://main--boo-kit.netlify.app/', // Netlify frontend URL
+    optionsSuccessStatus: 200
+};
+
 app.use(express.json());
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (request, response)=>{
     console.log(request);
