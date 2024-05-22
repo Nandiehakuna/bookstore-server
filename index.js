@@ -20,7 +20,7 @@ app.get("/", (request, response)=>{
 
 app.use(route);
 
-mongoose.connect(mongoDbUrl)
+mongoose.connect(mongoDbUrl ,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
 console.log(`app connected to database`);
 app.listen(PORT, ()=>{
@@ -34,4 +34,6 @@ app.listen(PORT, ()=>{
     console.error(error);
 
 })
+
+module.exports=app
 
